@@ -6,7 +6,7 @@ def menu():
     2- Actualizar población y superficie de un país
     3- Buscar país
     4- Filtrar país ###Acá por continente, rango de población o rango de superficie
-    5- Lista de países ###Acá por nombre, población o por superficie 
+    5- Lista de países ###Acá MOSTRAR NO GUARDAR, por nombre, población o por superficie 
     6- Estadísticas ### mayor menor poblacion, promedio de poblacion, promedio de sup, cant de paises por continente
     7- Salir del menú""")
     print()
