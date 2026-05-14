@@ -15,7 +15,7 @@ def menu():
 def validar_texto(mensaje_1,mensaje_2):
     while True:
         try:
-          texto = input(mensaje_1).strip()
+          texto = input(mensaje_1).strip()  
           if texto.isalpha():
             print(mensaje_2)
             return texto
