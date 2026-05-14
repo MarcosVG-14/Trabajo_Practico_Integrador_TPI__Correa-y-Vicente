@@ -1,4 +1,9 @@
+from programa_principal import *
+from funciones_validaciones import *
+from funciones import *
+from funciones_programa import *
 def menu():
+    paises = cargar_archivo()
     while True:
         print(" | BIBLIOTECA Y GESTIÓN DE DATOS CONTINENTALES |")
         print(""" - Menú de acciones - 
@@ -14,7 +19,7 @@ def menu():
         print()
         match opcion:
             case "1":
-                pass
+                agregar_pais(paises)
             case "2":
                 pass
             case "3":

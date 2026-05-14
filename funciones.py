@@ -7,7 +7,7 @@ def cargar_archivo():
       reader = csv.DictReader(archivo)
       for fila in reader:
         lista.append({
-            "nombre": fila["nombre"],
+            "pais": fila["pais"],
             "poblacion": int(fila["poblacion"]),
             "superficie": float(fila["superficie"]),
             "continente": fila["continente"],
