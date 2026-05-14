@@ -29,7 +29,7 @@ def menu():
             case "5":
                 pass
             case "6":
-                pass
+                mostrar_estadisticas(paises)
             case "7":
                 print("""Muchas gracias por usar nuestro sistema!
 Hasta Luego!""")
