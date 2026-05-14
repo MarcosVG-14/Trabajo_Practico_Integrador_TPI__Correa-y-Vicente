@@ -80,7 +80,7 @@ def actualizar_datos(lista):
         return lista
     
 #Mostrar estadísticas
-def mostrar_estadisticas(lista):
+def calculo_estadisticas(lista):
     promedio_poblacion = sum(p["poblacion"] for p in lista) / len(lista)
     promedio_superficie = sum(p["superficie"] for p in lista) / len(lista)
     menor_poblacion = min(lista, key=lambda x: x["poblacion"])
@@ -89,6 +89,21 @@ def mostrar_estadisticas(lista):
     for p in lista:
         cont = p["continente"]
         conteo_continentes[cont] = conteo_continentes.get(cont, 0) + 1
+    opcion=input("""Qué dato es el que desea consultar?
+1- País con mayor cantidad de habitantes
+2- País con menor cantidad de habitantes
+3- Promedio de población
+4- """)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     print(f""" | ESTADÍSTICAS DEL SISTEMA |
 - País con mayor cantidad de habitantes: {mayor_poblacion['pais']} ({mayor_poblacion['poblacion']:,})
 - País con menor cantidad de habitantes: {menor_poblacion['pais']} ({menor_poblacion['poblacion']:,})
