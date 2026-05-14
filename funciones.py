@@ -18,3 +18,16 @@ def cargar_archivo():
   except PermissionError:
     print("Error... No tenes permiso de lectura en este archivo.")
   return lista
+
+def guardar_archivo(lista):
+  try:
+    with open("paises.csv", "w", newline="", encoding="utf-8") as archivo:
+      fieldnames = ["pais", "poblacion", "superficie", "continente"]
+      writer = csv.DictWriter(archivo, fieldnames=fieldnames)
+      writer.writeheader()
+      writer.writerows(lista)
+    print("Archivo guardado exitosamente.")
+  except FileNotFoundError:
+    print("El archivo no existe.")
+  except PermissionError:
+    print("Error... No tiene permiso para escritura.")
