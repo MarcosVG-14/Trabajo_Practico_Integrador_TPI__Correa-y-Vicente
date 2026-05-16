@@ -96,14 +96,7 @@ def calculo_estadisticas(lista):
 4- """)
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+
     print(f""" | ESTADÍSTICAS DEL SISTEMA |
 - País con mayor cantidad de habitantes: {mayor_poblacion['pais']} ({mayor_poblacion['poblacion']:,})
 - País con menor cantidad de habitantes: {menor_poblacion['pais']} ({menor_poblacion['poblacion']:,})
