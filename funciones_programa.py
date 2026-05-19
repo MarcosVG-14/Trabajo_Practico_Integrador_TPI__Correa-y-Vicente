@@ -17,3 +17,19 @@ def agregar_pais(lista):
       lista.append(nuevo_pais)
       guardar_archivo(lista)
     return lista
+
+def mostrar_paises(lista):
+    for p in lista:
+        print(f"País: {p['pais']} | Población: {p['poblacion']} | Superficie: {p['superficie']} km² | Continente: {p['continente']}")
+
+# Buscar un país por nombre
+def buscar_por_nombre(lista):
+    busqueda = validar_texto("Ingrese el nombre del país a buscar: ")
+    encontrado = False
+    for pais in lista:
+        if pais["pais"].lower() == busqueda.lower() or pais["pais"].lower().startswith(busqueda.lower()):
+            mostrar_paises([pais])
+            encontrado = True
+            break
+    if not encontrado:
+      print(f"El país '{busqueda}' no se encuentra en el sistema.")
