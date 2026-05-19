@@ -31,3 +31,13 @@ def guardar_archivo(lista):
     print("El archivo no existe.")
   except PermissionError:
     print("Error... No tiene permiso para escritura.")
+
+def imprimir_diccionario(dict,primer_mensaje,segundo_mensaje):
+    a = dict.keys()
+    b = dict.values()
+    lista_a = list(a)
+    lista_b = list(b)
+    for a, b in dict.items():
+        print(f"   {primer_mensaje}: {a}")
+        print(f"   {segundo_mensaje}: {b}")
+        print(" — "*15)

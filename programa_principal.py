@@ -1,6 +1,6 @@
 from programa_principal import *
 from funciones_validaciones import *
-from funciones import *
+from funciones_paralelas import *
 from funciones_programa import *
 def menu():
     paises = cargar_archivo()

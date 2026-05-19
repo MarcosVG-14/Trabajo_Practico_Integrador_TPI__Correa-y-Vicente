@@ -1,5 +1,6 @@
 from funciones_validaciones import *
-from funciones import *
+from funciones_paralelas import *
+
 #Agregar país
 def agregar_pais(lista):
     pais=validar_texto("Ingrese el nombre del país: ")
