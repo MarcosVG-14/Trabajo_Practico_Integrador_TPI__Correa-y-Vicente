@@ -42,3 +42,12 @@ def validar_flotante(mensaje_1,mensaje_2=None):
         print("ERROR... Por favor ingrese un número válido.")
       except Exception as e:
         print(f"Hubo un error inesperado... Error: {e}.")
+def imprimir_diccionario(dict,primer_mensaje,segundo_mensaje):
+    a = dict.keys()
+    b = dict.values()
+    lista_a = list(a)
+    lista_b = list(b)
+    for a, b in dict.items():
+        print(f"   {primer_mensaje}: {a}")
+        print(f"   {segundo_mensaje}: {b}")
+        print(" — "*15)
