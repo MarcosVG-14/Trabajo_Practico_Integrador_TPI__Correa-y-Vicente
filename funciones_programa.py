@@ -2,13 +2,14 @@ from funciones_validaciones import *
 from funciones_paralelas import *
 
 #Agregar país
-def agregar_pais(lista):
-    pais=validar_texto("Ingrese el nombre del país: ")
-    if pais in [p["pais"] for p in lista]:
-        print("El país ya se encuentra cargado en el sistema.")
-        print("Volviendo al menú...")
-        print()
-        return lista
+def agregar_pais(lista,cantidad):
+    for _ in range(cantidad):
+        pais=validar_texto("Ingrese el nombre del país: ")
+        if pais in [p["pais"] for p in lista]:
+            print("El país ya se encuentra cargado en el sistema.")
+            print("Volviendo al menú...")
+            print()
+            return lista
     else:
       print("Agregando país...")
       poblacion=validar_entero("Ingrese la población del país: ","Ingreso exitoso!")
