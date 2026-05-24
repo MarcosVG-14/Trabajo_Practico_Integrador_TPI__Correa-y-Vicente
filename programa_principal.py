@@ -1,5 +1,4 @@
 from programa_principal import *
-from funciones_validaciones import *
 from funciones_paralelas import *
 from funciones_programa import *
 def menu():
@@ -7,31 +6,38 @@ def menu():
     while True:
         print(" | BIBLIOTECA Y GESTIÓN DE DATOS CONTINENTALES |")
         print(""" - Menú de acciones - 
-        1- Añadir un país (Nombre, población, superficie cubierta, continente)
-        2- Actualizar población y superficie de un país
-        3- Buscar país
-        4- Filtrar país ###Acá por continente, rango de población o rango de superficie
-        5- Lista de países ###Acá MOSTRAR NO GUARDAR, por nombre, población o por superficie 
-        6- Estadísticas ### mayor menor poblacion, promedio de poblacion, promedio de sup, cant de paises por continente
-        7- Salir del menú""")
+1- Añadir un país
+2- Actualizar datos de un país
+3- Buscar un país
+4- Filtrado de países
+5- Ordenamiento de países
+6- Estadísticas de países
+7- Salir del menú""")
         print()
         opcion=input("Ingrese una opción: ").strip().lower()
         print()
         match opcion:
             case "1" | "uno":
-                cantidad=validar_entero("Cuantos países desea cargar al sistema: ")
+                limpiado_consola()
+                cantidad=validar_entero("Cuántos paises desea cargar al sistema: ","Ingresando al sistema de carga...")
                 agregar_pais(paises,cantidad)
             case "2" | "dos":
+                limpiado_consola()
                 actualizar_datos(paises)
             case "3" | "tres":
-                pass
+                limpiado_consola()
+                buscar_por_nombre(paises)
             case "4" | "cuatro":
-                pass
+                limpiado_consola()
+                filtar_paises(paises)
             case "5" | "cinco":
-                pass
+                limpiado_consola()
+                ordenar_paises(paises)
             case "6" | "seis":
+                limpiado_consola()
                 calculo_estadisticas(paises)
             case "7" | "siete":
+                limpiado_consola()
                 print("""Muchas gracias por usar nuestro sistema!
 Hasta Luego!""")
                 break

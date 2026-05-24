@@ -1,4 +1,71 @@
 import csv
+import os
+
+# ====================================================================================================== #
+# ====================================================================================================== #
+# ====================================================================================================== #
+
+#Bloque de validaciones
+
+def validar_texto(mensaje_1,mensaje_2=None,mensaje_3=None,permitir_campo_vacio=False):
+    while True:
+        try:
+            texto = input(mensaje_1).capitalize().strip()
+            if texto == "":
+                if permitir_campo_vacio:
+                  if mensaje_3:
+                      print(mensaje_3)
+                  return None
+                else:
+                    print("ERROR... Este campo es obligatorio. No puede quedar vacío.")
+                    continue
+            if texto.replace(" ","").isalpha():
+                if mensaje_2:
+                  print(mensaje_2)
+                return texto
+            else:
+                print("ERROR... El texto solo puede contener letras y espacios.")
+        except KeyboardInterrupt:
+           print("Se interrumpió el programa por el usuario.")
+           break
+        except Exception as e:
+           print(f"Hubo un error inesperado... Error: {e}.")
+
+def validar_entero(mensaje_1,mensaje_2=None):
+   while True:
+      try:
+        numero = int(input(mensaje_1))
+        if numero < 0:
+           print("ERROR... No se permiten números negativos.")
+           continue
+        if mensaje_2:
+          print(mensaje_2)
+        return numero
+      except ValueError:
+        print("ERROR... Por favor ingrese un número entero.")
+      except Exception as e:
+        print(f"Hubo un error inesperado... Error: {e}.")
+
+def validar_flotante(mensaje_1,mensaje_2=None):
+   while True:
+      try:
+        numero = float(input(mensaje_1))
+        if numero < 0:
+           print("ERROR... No se permiten números negativos.")
+           continue
+        if mensaje_2:
+          print(mensaje_2)
+        return numero
+      except ValueError:
+        print("ERROR... Por favor ingrese un número válido.")
+      except Exception as e:
+        print(f"Hubo un error inesperado... Error: {e}.")
+
+# ====================================================================================================== #
+# ====================================================================================================== #
+# ====================================================================================================== #
+
+#Bloque de manejo de csv
 
 def cargar_archivo():
   lista = []
@@ -32,6 +99,12 @@ def guardar_archivo(lista):
   except PermissionError:
     print("Error... No tiene permiso para escritura.")
 
+# ====================================================================================================== #
+# ====================================================================================================== #
+# ====================================================================================================== #
+
+#Bloque de funciones utilizadas en el programa
+
 def imprimir_diccionario(dict,primer_mensaje,segundo_mensaje):
     a = dict.keys()
     b = dict.values()
@@ -41,3 +114,30 @@ def imprimir_diccionario(dict,primer_mensaje,segundo_mensaje):
         print(f"   {primer_mensaje}: {a}")
         print(f"   {segundo_mensaje}: {b}")
         print(" — "*15)
+
+# Funciones auxiliares para ordenar
+def clave_nombre(pais):
+    return pais["pais"]
+
+def clave_poblacion(pais):
+    return pais["poblacion"]
+
+def clave_superficie(pais):
+    return pais["superficie"]
+
+# estas funciones buscan la clave que se le asigna a cada país, por ejemplo, la función "clave_nombre" devuelve el valor del nombre del país, 
+# nos permite ordenar la lista de países segun nombre, poblacion o superficie
+
+def mostrar_paises(lista):
+    for p in lista:
+        print(f"País: {p['pais']} | Población: {p['poblacion']} | Superficie: {p['superficie']} km² | Continente: {p['continente']}")
+
+def continuar():
+    print()
+    input("-- Presione cualquier tecla para continuar --")
+
+def limpiado_consola():
+    if os.name == 'nt': #"nt" representa Windows.
+        os.system('cls') 
+    else: #Acá si no es windows borra todo igual.
+        os.system('clear')
