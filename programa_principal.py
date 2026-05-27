@@ -4,14 +4,10 @@ def menu():
     while True:
         paises = cargar_archivo()
         ANCHO = 55
-    
-        # --- ENCABEZADO AUTOMÁTICO ---
         print("=" * ANCHO)
         print(f" {'BIBLIOTECA DE PAISES'.center(ANCHO - 2)} ")
         print(f" {'& Gestión de Datos Continentales'.center(ANCHO - 2)} ")
         print("=" * ANCHO)
-        
-        # --- CUADRO DE OPCIONES DINÁMICO ---
         print("╔" + "═" * (ANCHO - 2) + "╗")
         print(f"║ {'- Menú de Acciones -'.center(ANCHO - 4)} ║")
         print("╠" + "═" * (ANCHO - 2) + "╣")
