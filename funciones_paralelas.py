@@ -34,7 +34,10 @@ def validar_texto(mensaje_1,mensaje_2=None,mensaje_3=None,permitir_campo_vacio=F
 def validar_entero(mensaje_1,mensaje_2=None):
    while True:
       try:
-        numero = int(input(mensaje_1))
+        entrada = input(mensaje_1).strip().lower()
+        if entrada == 's':
+          return "salir"
+        numero = int(entrada)
         if numero < 0:
            print("ERROR... No se permiten números negativos.")
            continue
