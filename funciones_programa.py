@@ -27,7 +27,37 @@ def agregar_pais(lista, cantidad):
             print("-" * ANCHO)
             poblacion = validar_entero("Ingrese la población del país: ", "Ingreso exitoso!")
             superficie = validar_flotante("Ingrese la superficie del país: ", "Ingreso exitoso!")
-            continente = validar_texto("Ingrese el continente ubicado: ", "Ingreso exitoso!")
+            while True:
+                opcion = input("""Ingrese el continente en el que se encuentra el país: 
+1- América
+2- Europa
+3- África
+4- Asia
+5- Oceanía
+6- Antártida
+
+    - """)
+                match opcion:
+                    case "1" | "uno":
+                        continente = "America"
+                        break
+                    case "2" | "dos":
+                        continente = "Europa"
+                        break
+                    case "3" | "tres":
+                        continente = "Africa"
+                        break
+                    case "4" | "cuatro":
+                        continente = "Asia"
+                        break
+                    case "5" | "cinco":
+                        continente = "Oceania"
+                        break
+                    case "6" "seis":
+                        continente = "Antartida"
+                        break
+                    case _:
+                        print("Error... Ese continente no existe.")
             nuevo_pais = {"pais": pais, "poblacion": poblacion, "superficie": superficie, "continente": continente}
             lista.append(nuevo_pais)
             print()

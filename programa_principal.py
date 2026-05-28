@@ -17,7 +17,7 @@ def menu():
         print(f"║ {'[4] Filtrado de países'.ljust(ANCHO - 4)} ║")
         print(f"║ {'[5] Ordenamiento de países'.ljust(ANCHO - 4)} ║")
         print(f"║ {'[6] Estadísticas de países'.ljust(ANCHO - 4)} ║")
-        print("║" + " " * (ANCHO - 2) + "║")  # Línea en blanco para respirar
+        print("║" + " " * (ANCHO - 2) + "║")
         print(f"║ {'[7] Salir del menú'.ljust(ANCHO - 4)} ║")
         print("╚" + "═" * (ANCHO - 2) + "╝")
         print()
@@ -48,10 +48,11 @@ def menu():
                 calculo_estadisticas(paises)
             case "7" | "siete":
                 limpiado_consola()
-                # Mensaje de despedida en Verde
                 print("""¡Muchas gracias por usar nuestro sistema!
 Hasta luego.""")
                 break
             case _:
                 print("Error... Comando incorrecto.")
+                continuar()
+                limpiado_consola()
                 print()

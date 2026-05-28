@@ -137,7 +137,8 @@ def mostrar_paises(lista):
 
 def continuar():
     print()
-    input("-- Presione cualquier tecla para continuar --")
+    input("""-- Presione cualquier tecla para continuar --
+""")
 
 def limpiado_consola():
     if os.name == 'nt': #"nt" representa Windows.
