@@ -3,7 +3,6 @@ from funciones_programa import *
 def menu():
     while True:
         paises = cargar_archivo()
-        ANCHO = 55
         print("=" * ANCHO)
         print(f" {'BIBLIOTECA DE PAISES'.center(ANCHO - 2)} ")
         print(f" {'& Gestión de Datos Continentales'.center(ANCHO - 2)} ")

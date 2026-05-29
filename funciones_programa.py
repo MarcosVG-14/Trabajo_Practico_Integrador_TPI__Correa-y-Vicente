@@ -1,8 +1,8 @@
 from funciones_paralelas import *
+ANCHO = 55
 
 # Agregar país
 def agregar_pais(lista, cantidad):
-    ANCHO = 55
     for i in range(cantidad):
         print("╔" + "═" * (ANCHO - 2) + "╗")
         print(f"║ {f"Registrando país n°{i+1} de {cantidad}".center(ANCHO - 4)} ║")
@@ -72,7 +72,6 @@ def agregar_pais(lista, cantidad):
 
 # Actualizar datos
 def actualizar_datos(lista):
-    ANCHO = 55
     if not lista:
         print("┌" + "─" * (ANCHO - 2) + "┐")
         print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
@@ -154,7 +153,6 @@ def actualizar_datos(lista):
 
 # Buscar un país por nombre
 def buscar_por_nombre(lista):
-    ANCHO = 55
     if not lista:
         print("┌" + "─" * (ANCHO - 2) + "┐")
         print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
@@ -185,7 +183,6 @@ def buscar_por_nombre(lista):
 
 # Filtar paises
 def filtar_paises(lista):
-    ANCHO = 55
     if not lista:
         print("┌" + "─" * (ANCHO - 2) + "┐")
         print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
@@ -276,7 +273,6 @@ def filtar_paises(lista):
 
 # Ordenar países
 def ordenar_paises(lista):
-    ANCHO = 55
     if not lista:
         print("┌" + "─" * (ANCHO - 2) + "┐")
         print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
@@ -395,7 +391,6 @@ def ordenar_paises(lista):
 
 #Mostrar estadísticas
 def calculo_estadisticas(lista):
-    ANCHO = 55
     if not lista:
         print("┌" + "─" * (ANCHO - 2) + "┐")
         print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
