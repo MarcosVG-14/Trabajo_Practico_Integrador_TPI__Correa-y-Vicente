@@ -6,7 +6,7 @@ import os
 # ====================================================================================================== #
 
 #Bloque de validaciones
-
+'''Validación de texto, no admite nada que no sea una letra'''
 def validar_texto(mensaje_1,mensaje_2=None,mensaje_3=None,permitir_campo_vacio=False):
     while True:
         try:
@@ -30,7 +30,7 @@ def validar_texto(mensaje_1,mensaje_2=None,mensaje_3=None,permitir_campo_vacio=F
            break
         except Exception as e:
            print(f"Hubo un error inesperado... Error: {e}.")
-
+'''Validación de número, no admite nada que no sea un número entero'''
 def validar_entero(mensaje_1,mensaje_2=None):
    while True:
       try:
@@ -48,7 +48,7 @@ def validar_entero(mensaje_1,mensaje_2=None):
         print("ERROR... Por favor ingrese un número entero.")
       except Exception as e:
         print(f"Hubo un error inesperado... Error: {e}.")
-
+'''Validación de número, no admite nada que no sea un número con coma'''
 def validar_flotante(mensaje_1,mensaje_2=None):
    while True:
       try:
@@ -107,6 +107,20 @@ def guardar_archivo(lista):
 # ====================================================================================================== #
 
 #Bloque de funciones utilizadas en el programa
+
+
+def lista_vacía(lista):
+    ANCHO = 55
+    if not lista:
+        print("┌" + "─" * (ANCHO - 2) + "┐")
+        print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
+        print("└" + "─" * (ANCHO - 2) + "┘")
+        print()
+        continuar()
+        limpiado_consola()
+        return True # <--- Retorna True si está vacía
+    return False # <--- Retorna False si tiene datos
+       
 
 def imprimir_diccionario(dict,primer_mensaje,segundo_mensaje):
     a = dict.keys()

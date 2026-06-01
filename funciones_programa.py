@@ -72,14 +72,8 @@ def agregar_pais(lista, cantidad):
 
 # Actualizar datos
 def actualizar_datos(lista):
-    if not lista:
-        print("┌" + "─" * (ANCHO - 2) + "┐")
-        print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
-        print("└" + "─" * (ANCHO - 2) + "┘")
-        print()
-        continuar()
-        limpiado_consola()
-        return lista
+    if lista_vacía(lista):
+        return
     encontrado = False
     pais = validar_texto("Ingrese el nombre del país a modificar: ")
     print()
@@ -153,13 +147,7 @@ def actualizar_datos(lista):
 
 # Buscar un país por nombre
 def buscar_por_nombre(lista):
-    if not lista:
-        print("┌" + "─" * (ANCHO - 2) + "┐")
-        print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
-        print("└" + "─" * (ANCHO - 2) + "┘")
-        print()
-        continuar()
-        limpiado_consola()
+    if lista_vacía(lista):
         return
     busqueda = validar_texto("Ingrese el nombre del país a buscar: ")
     print()
@@ -183,13 +171,7 @@ def buscar_por_nombre(lista):
 
 # Filtar paises
 def filtar_paises(lista):
-    if not lista:
-        print("┌" + "─" * (ANCHO - 2) + "┐")
-        print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
-        print("└" + "─" * (ANCHO - 2) + "┘")
-        print()
-        continuar()
-        limpiado_consola()
+    if lista_vacía(lista):
         return
     while True:
         print("┌" + "─" * (ANCHO - 2) + "┐")
@@ -273,13 +255,7 @@ def filtar_paises(lista):
 
 # Ordenar países
 def ordenar_paises(lista):
-    if not lista:
-        print("┌" + "─" * (ANCHO - 2) + "┐")
-        print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
-        print("└" + "─" * (ANCHO - 2) + "┘")
-        print()
-        continuar()
-        limpiado_consola()
+    if lista_vacía(lista):
         return
     while True:
         print("┌" + "─" * (ANCHO - 2) + "┐")
@@ -391,13 +367,7 @@ def ordenar_paises(lista):
 
 #Mostrar estadísticas
 def calculo_estadisticas(lista):
-    if not lista:
-        print("┌" + "─" * (ANCHO - 2) + "┐")
-        print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
-        print("└" + "─" * (ANCHO - 2) + "┘")
-        print()
-        continuar()
-        limpiado_consola()
+    if lista_vacía(lista):
         return
     promedio_poblacion = sum(p["poblacion"] for p in lista) / len(lista)
     promedio_superficie = sum(p["superficie"] for p in lista) / len(lista)
