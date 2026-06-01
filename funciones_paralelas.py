@@ -112,9 +112,9 @@ def guardar_archivo(lista):
 def lista_vacía(lista):
     ANCHO = 55
     if not lista:
-        print("┌" + "─" * (ANCHO - 2) + "┐")
+        print("┌" + "─" * (ANCHO + 4) + "┐")
         print(f"│ {"Error... Actualmente no hay datos cargados en el sistema.".ljust(ANCHO - 4)} │")
-        print("└" + "─" * (ANCHO - 2) + "┘")
+        print("└" + "─" * (ANCHO + 4) + "┘")
         print()
         continuar()
         limpiado_consola()
