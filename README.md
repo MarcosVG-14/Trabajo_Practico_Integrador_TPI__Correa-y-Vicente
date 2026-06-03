@@ -3,7 +3,7 @@
 Este es una aplicación interactiva desarrollada en Python y ejecutada a través de la consola, diseñado especialmente para almacenar, administrar, filtrar, ordenar y analizar información geopolítica y estadística básica de diferentes países del mundo.
 El programa utiliza una interfaz visual adaptada a la terminal mediante el uso de recuadros de texto decorativos (caracteres ASCII), garantizando una experiencia de usuario intuitiva, prolija y ordenada.
 
-## 🚀 Características Principales
+## Características Principales
 El sistema ofrece un menú completo con 7 acciones para una gestión eficiente de los datos:
 
 1. **Añadir Países:** Permite registrar múltiples países en una sola carga. Captura de forma validada el nombre del país, su población, su superficie (en km2) y el continente al que pertenece. Cuenta con control de duplicados para evitar registros repetidos.
@@ -28,7 +28,7 @@ El proyecto está modularizado para mantener un código limpio y escalable. Para
 * **`funciones_programa.py`:** Contiene las funciones del núcleo operativo (`agregar_pais`, `actualizar_datos`, `buscar_por_nombre`, `filtar_paises`, `ordenar_paises`, `calculo_estadisticas`).
 * **`funciones_paralelas.py`:** Contiene las funciones complementarias que se utilizan en el programa principal: funciones de validación de entradas (`validar_texto`, `validar_entero`, `validar_flotante`), controles de interfaz (`limpiado_consola`, `continuar`), verificación de estados (`lista_vacía`) e interacción de archivos (`guardar_archivo`, `cargar_archivo`, `imprimir_diccionario`).
 
-## 📖 Instrucciones de Uso (Paso a Paso)
+## Instrucciones de Uso (Paso a Paso)
 Al iniciar el programa, serás recibido por el menú principal interactivo en la terminal.
 ### 1. Cómo añadir un país al sistema
 1. Selecciona la opción **`1`** en el menú principal.

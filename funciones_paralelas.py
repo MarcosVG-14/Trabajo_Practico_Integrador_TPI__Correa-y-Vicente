@@ -6,6 +6,7 @@ import os
 # ====================================================================================================== #
 
 #Bloque de validaciones
+
 '''Validación de texto, no admite nada que no sea una letra'''
 def validar_texto(mensaje_1,mensaje_2=None,mensaje_3=None,permitir_campo_vacio=False):
     while True:
@@ -30,6 +31,7 @@ def validar_texto(mensaje_1,mensaje_2=None,mensaje_3=None,permitir_campo_vacio=F
            break
         except Exception as e:
            print(f"Hubo un error inesperado... Error: {e}.")
+
 '''Validación de número, no admite nada que no sea un número entero'''
 def validar_entero(mensaje_1,mensaje_2=None):
    while True:
@@ -48,6 +50,7 @@ def validar_entero(mensaje_1,mensaje_2=None):
         print("ERROR... Por favor ingrese un número entero.")
       except Exception as e:
         print(f"Hubo un error inesperado... Error: {e}.")
+
 '''Validación de número, no admite nada que no sea un número con coma'''
 def validar_flotante(mensaje_1,mensaje_2=None):
    while True:
@@ -70,6 +73,7 @@ def validar_flotante(mensaje_1,mensaje_2=None):
 
 #Bloque de manejo de csv
 
+'''Carga o crea un archivo csv cuando inicia el programa'''
 def cargar_archivo():
   lista = []
   try:
@@ -89,6 +93,7 @@ def cargar_archivo():
     print("Error... No tenes permiso de lectura en este archivo.")
   return lista
 
+'''Guarda y mantiene los datos en un archivo csv'''
 def guardar_archivo(lista):
   try:
     with open("paises.csv", "w", newline="", encoding="utf-8") as archivo:
@@ -108,7 +113,7 @@ def guardar_archivo(lista):
 
 #Bloque de funciones utilizadas en el programa
 
-
+'''Función que verifica el estado de la lista de diccionarios'''
 def lista_vacía(lista):
     ANCHO = 55
     if not lista:
@@ -118,10 +123,10 @@ def lista_vacía(lista):
         print()
         continuar()
         limpiado_consola()
-        return True # <--- Retorna True si está vacía
-    return False # <--- Retorna False si tiene datos
+        return True #Retorna True si está vacía
+    return False #Retorna False si tiene datos
        
-
+'''Función que imprime un diccionario de manera ordenada'''
 def imprimir_diccionario(dict,primer_mensaje,segundo_mensaje):
     a = dict.keys()
     b = dict.values()
@@ -145,15 +150,18 @@ def clave_superficie(pais):
 # estas funciones buscan la clave que se le asigna a cada país, por ejemplo, la función "clave_nombre" devuelve el valor del nombre del país, 
 # nos permite ordenar la lista de países segun nombre, poblacion o superficie
 
+'''Función que imprime una lista con diccionarios'''
 def mostrar_paises(lista):
     for p in lista:
         print(f"País: {p['pais']} | Población: {p['poblacion']} | Superficie: {p['superficie']} km² | Continente: {p['continente']}")
 
+'''Función que regula la ejecución del programa para mantener un orden y tempo'''
 def continuar():
     print()
     input("""-- Presione cualquier tecla para continuar --
 """)
 
+'''Función que limpia la consola para que se vea mejor'''
 def limpiado_consola():
     if os.name == 'nt': #"nt" representa Windows.
         os.system('cls') 

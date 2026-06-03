@@ -2,6 +2,7 @@ from funciones_paralelas import *
 ANCHO = 55
 
 # Agregar país
+'''Pide al usuario que ingrese los datos para crear un diccionario e ingresarlo a la lista de diccionarios'''
 def agregar_pais(lista, cantidad):
     for i in range(cantidad):
         print("╔" + "═" * (ANCHO - 2) + "╗")
@@ -71,6 +72,7 @@ def agregar_pais(lista, cantidad):
     return lista
 
 # Actualizar datos
+'''Pide al usuario que ingrese el nombre de un país, verifica que exista y le deja cambiar 2 campos a elección del usuario'''
 def actualizar_datos(lista):
     if lista_vacía(lista):
         return
@@ -146,6 +148,7 @@ def actualizar_datos(lista):
     return lista
 
 # Buscar un país por nombre
+'''Pide al usuario que ingrese el nombre de un país e imprime sus características por pantalla'''
 def buscar_por_nombre(lista):
     if lista_vacía(lista):
         return
@@ -170,6 +173,7 @@ def buscar_por_nombre(lista):
         limpiado_consola()
 
 # Filtar paises
+'''Pide al usuario que elija el método de filtrado que más le guste'''
 def filtar_paises(lista):
     if lista_vacía(lista):
         return
@@ -187,9 +191,32 @@ def filtar_paises(lista):
         limpiado_consola()
         match opcion.lower():
             case "1" | "uno":
-                continente = validar_texto("Ingrese el continente: ")
-                print()
-                filtrados = [pais for pais in lista if pais["continente"].capitalize() == continente.capitalize()]
+                while True:
+                    print("┌" + "─" * (ANCHO - 2) + "┐")
+                    print(f"│ {"- Seleccione un Continente -".center(ANCHO - 4)} │")
+                    print("├" + "─" * (ANCHO - 2) + "┤")
+                    print(f"│ {" [1] África".ljust(ANCHO - 4)} │")
+                    print(f"│ {" [2] América".ljust(ANCHO - 4)} │")
+                    print(f"│ {" [3] Antártida".ljust(ANCHO - 4)} │")
+                    print(f"│ {" [4] Asia".ljust(ANCHO - 4)} │")
+                    print(f"│ {" [5] Europa".ljust(ANCHO - 4)} │")
+                    print(f"│ {" [6] Oceanía".ljust(ANCHO - 4)} │")
+                    print("└" + "─" * (ANCHO - 2) + "┘")
+                    print()
+                    opcion = input(" - ").strip()
+                    limpiado_consola()
+                    continentes = {"1": "Africa","2": "America","3": "Antartida","4": "Asia","5": "Europa","6": "Oceania"} 
+                    if opcion in continentes:
+                        continente = continentes[opcion]
+                        break
+                    else:
+                        print("┌" + "─" * (ANCHO - 2) + "┐")
+                        print(f"│ {"Error... Comando incorrecto.".ljust(ANCHO - 4)} │")
+                        print("└" + "─" * (ANCHO - 2) + "┘")
+                        print()
+                        continuar()
+                        limpiado_consola()
+                filtrados = [pais for pais in lista if pais["continente"].lower() == continente.lower()]
                 if filtrados:
                     print("┌" + "─" * (ANCHO - 2) + "┐")
                     print(f"│ {f"Países en el continente: {continente.upper()}".center(ANCHO - 4)} │")
@@ -198,7 +225,7 @@ def filtar_paises(lista):
                     mostrar_paises(filtrados)
                 else:
                     print("┌" + "─" * (ANCHO - 2) + "┐")
-                    print(f"│ {f"No se encontraron países en el continente '{continente}.".ljust(ANCHO - 4)} │")
+                    print(f"│ {f"No se encontraron países en el continente '{continente}'.".ljust(ANCHO - 4)} │")
                     print("└" + "─" * (ANCHO - 2) + "┘") 
                 print("-" * ANCHO)
                 continuar()
@@ -210,15 +237,15 @@ def filtar_paises(lista):
                 filtrados = [pais for pais in lista if poblacion_min <= pais["poblacion"] <= poblacion_max]
                 # acá arriba recorre los paises en la lista y los compara con los valores ingresados por el usuario, si el pais cumple la condicion se agrega a la lista "filtrados"
                 if filtrados:
-                    print("┌" + "─" * (ANCHO - 2) + "┐")
-                    print(f"│ {"Resultados por rango de población".center(ANCHO - 4)} │")
-                    print("└" + "─" * (ANCHO - 2) + "┘")
+                    print("┌" + "─" * (ANCHO + 10) + "┐")
+                    print(f"│ {"Resultados por rango de población".center(ANCHO + 8)} │")
+                    print("└" + "─" * (ANCHO + 10) + "┘")
                     print()
                     mostrar_paises(filtrados)
                 else:
-                    print("┌" + "─" * (ANCHO - 2) + "┐")
-                    print(f"│ {f"No se encontraron países con población entre {poblacion_min} y {poblacion_max}.".ljust(ANCHO - 4)} │")
-                    print("└" + "─" * (ANCHO - 2) + "┘")
+                    print("┌" + "─" * (ANCHO + 10) + "┐")
+                    print(f"│ {f"No se encontraron países con población entre {poblacion_min} y {poblacion_max}.".ljust(ANCHO + 8)} │")
+                    print("└" + "─" * (ANCHO + 10) + "┘")
                 print("-" * ANCHO)
                 continuar()
                 limpiado_consola()
@@ -228,15 +255,15 @@ def filtar_paises(lista):
                 print()
                 filtrados = [pais for pais in lista if superficie_min <= pais["superficie"] <= superficie_max]
                 if filtrados:
-                    print("┌" + "─" * (ANCHO - 2) + "┐")
-                    print(f"│ {"Resultados por rango de superficie".center(ANCHO - 4)} │")
-                    print("└" + "─" * (ANCHO - 2) + "┘")
+                    print("┌" + "─" * (ANCHO + 10) + "┐")
+                    print(f"│ {"Resultados por rango de superficie".center(ANCHO + 8)} │")
+                    print("└" + "─" * (ANCHO + 10) + "┘")
                     print()
                     mostrar_paises(filtrados)
                 else:
-                    print("┌" + "─" * (ANCHO - 2) + "┐")
-                    print(f"│ {f"No se encontraron países con superficie entre {superficie_min} y {superficie_max} km².".ljust(ANCHO - 4)} │")
-                    print("└" + "─" * (ANCHO - 2) + "┘")     
+                    print("┌" + "─" * (ANCHO + 10) + "┐")
+                    print(f"│ {f"No se encontraron países con superficie entre {superficie_min} y {superficie_max} km².".ljust(ANCHO + 8)} │")
+                    print("└" + "─" * (ANCHO + 10) + "┘")     
                 print("-" * ANCHO)
                 continuar()
                 limpiado_consola()
@@ -254,6 +281,7 @@ def filtar_paises(lista):
                 limpiado_consola()
 
 # Ordenar países
+'''Pide al usuario que eljia el método de ordenamiento que él prefiera'''
 def ordenar_paises(lista):
     if lista_vacía(lista):
         return
@@ -366,6 +394,7 @@ def ordenar_paises(lista):
                 limpiado_consola()
 
 #Mostrar estadísticas
+'''Genera estadísticas al instante de los datos que la lista tiene. Pueden variar según la lista'''
 def calculo_estadisticas(lista):
     if lista_vacía(lista):
         return
@@ -389,14 +418,14 @@ def calculo_estadisticas(lista):
     print(f"║ {"REPORTE ESTADÍSTICO GLOBAL".center(ANCHO - 4)} ║")
     print("╠" + "═" * (ANCHO - 2) + "╣")
     print(f"║ {"[ Máximos y Mínimos ]".center(ANCHO - 4)} ║")
-    print(f"║  • Mayor Población: {mayor_poblacion["pais"].upper()}".ljust(ANCHO - 4) + "  ║")
-    print(f"║    Habitantes: {mayor_poblacion["poblacion"]:,}".ljust(ANCHO - 4) + "  ║")
-    print(f"║  • Menor Población: {menor_poblacion["pais"].upper()}".ljust(ANCHO - 4) + "  ║")
-    print(f"║    Habitantes: {menor_poblacion["poblacion"]:,}".ljust(ANCHO - 4) + "  ║")
+    print(f"║  • Mayor Población: {mayor_poblacion["pais"].upper()}".ljust(ANCHO - 3) + "  ║")
+    print(f"║    Habitantes: {mayor_poblacion["poblacion"]:,}".ljust(ANCHO - 3) + "  ║")
+    print(f"║  • Menor Población: {menor_poblacion["pais"].upper()}".ljust(ANCHO - 3) + "  ║")
+    print(f"║    Habitantes: {menor_poblacion["poblacion"]:,}".ljust(ANCHO - 3) + "  ║")
     print("╠" + "═" * (ANCHO - 2) + "╣")
     print(f"║ {"[ Promedios Generales ]".center(ANCHO - 4)} ║")
-    print(f"║  • Población media: {promedio_poblacion:,.2f} hab.".ljust(ANCHO - 4) + "  ║")
-    print(f"║  • Superficie media: {promedio_superficie:,.2f} km²".ljust(ANCHO - 4) + "  ║")
+    print(f"║  • Población media: {promedio_poblacion:,.2f} hab.".ljust(ANCHO - 3) + "  ║")
+    print(f"║  • Superficie media: {promedio_superficie:,.2f} km²".ljust(ANCHO - 3) + "  ║")
     print("╠" + "═" * (ANCHO - 2) + "╣")
     print(f"║ {"[ Cantidad de Países por Continente ]".center(ANCHO - 4)} ║")
     print("╚" + "═" * (ANCHO - 2) + "╝")
